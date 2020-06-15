@@ -2,13 +2,15 @@ import pandas as pd
 import jieba
 import numpy as np
 import sys
+import os
 
 if __name__ == '__main__':
-    if len(sys.argv) != 3:
-        raise Exception("run this script: "
-                        "python eval.py $golds_file_path $predict_file_path")
-    input_file = sys.argv[1]
-    output_file = sys.argv[2]
+    input_path = '/input'
+    output_path = '/output'
+    input_filename = 'SMP-CAIL2020-test1.csv'
+    output_filename = 'result1.csv'
+    input_file = input_path + '/' + input_filename
+    output_file = output_path + '/' + output_filename
 
     df1 = pd.read_csv(input_file)
     df2 = pd.DataFrame(columns=['id','answer'])
